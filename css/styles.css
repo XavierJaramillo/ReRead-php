@@ -3,7 +3,10 @@
     font-family: monospace;
 }
 
-body {
+body,
+html {
+    min-height: 100% !important;
+    height: 100%;
     margin: 0;
 }
 
@@ -46,7 +49,11 @@ body {
 }
 
 
-/* Style the topnav links */
+/* Style the topnav */
+
+.topnav {
+    margin-left: 15px;
+}
 
 .topnav a {
     float: left;
@@ -78,6 +85,11 @@ body {
 
 .column.left {
     width: 66.6%;
+}
+
+.content {
+    margin: auto;
+    width: 80%;
 }
 
 
@@ -128,18 +140,31 @@ body {
     padding: 20px;
 }
 
-.ebooklist {
-    margin: auto;
-    width: 80%;
-}
-
 .ebook img {
     width: 100%;
 }
 
 .ebook:hover {
-    background-color: red;
+    background-color: rgba(255, 0, 0, 0.404);
     color: white;
+}
+
+
+/* Footer */
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background: #117A65;
+    text-align: center;
+}
+
+footer p {
+    position: relative;
+    top: 50%;
+    transform: translateY(-140%);
 }
 
 
@@ -159,5 +184,15 @@ body {
     .topnav a {
         width: 100%;
         font-size: 25px;
+    }
+    .topnav {
+        margin-left: 0;
+    }
+    footer {
+        position: relative;
+        background-color: #117A65;
+        padding: 10px;
+        text-align: center;
+        color: white;
     }
 }
