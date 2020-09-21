@@ -46,7 +46,11 @@ body {
 }
 
 
-/* Style the topnav links */
+/* Style the topnav */
+
+.topnav {
+    margin-left: 15px;
+}
 
 .topnav a {
     float: left;
@@ -78,6 +82,11 @@ body {
 
 .column.left {
     width: 66.6%;
+}
+
+.content {
+    margin: auto;
+    width: 80%;
 }
 
 
@@ -128,17 +137,12 @@ body {
     padding: 20px;
 }
 
-.ebooklist {
-    margin: auto;
-    width: 80%;
-}
-
 .ebook img {
     width: 100%;
 }
 
 .ebook:hover {
-    background-color: red;
+    background-color: rgba(255, 0, 0, 0.404);
     color: white;
 }
 
@@ -159,5 +163,8 @@ body {
     .topnav a {
         width: 100%;
         font-size: 25px;
+    }
+    .topnav {
+        margin-left: 0;
     }
 }
