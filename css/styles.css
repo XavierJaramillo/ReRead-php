@@ -190,6 +190,7 @@ footer p {
     }
     footer {
         position: relative;
+        display: block!important;
         background-color: #117A65;
         padding: 10px;
         text-align: center;
