@@ -30,38 +30,36 @@
             <div class="content">
                 <h3>Toda la actualidad en eBook</h3>
 
-                <div class="ebook">
+                <!--<div class="ebook">
                     <a href="https://www.amazon.es/Cell-BEST-SELLER-Stephen-King/dp/8483465213">
                         <img src="../img/cell.jpeg" alt="Ebook 1"></a>
                     <p>Cuentos raros para chicos con problemas.</p>
-                </div>
+                </div>-->
 
-                <div class="ebook">
-                    <a href="https://www.amazon.es/ciclo-hombre-lobo-BEST-SELLER/dp/8499081282/ref=sr_1_1?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=X8E0IVMTIGFV&dchild=1&keywords=el+ciclo+del+hombre+lobo+stephen+king&qid=1600705923&sprefix=el+ciclo+del+h%2Cstripbooks%2C274&sr=8-1">
-                        <img src="../img/elciclodelhombrelobo.jpeg" alt="Ebook 2"></a>
-                    <p>Historia de un hombre lobo.</p>
-                </div>
+                <?php
+                //CONEXIÓN CON LA BASE DE DATOS
+                include '../services/connection.php';
 
-                <div class="ebook">
-                    <a href="https://www.amazon.es/resplandor-BEST-SELLER-Stephen-King/dp/8490328722/ref=sr_1_1?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=24C9CLA6828AB&dchild=1&keywords=el+resplandor+stephen+king&qid=1600705944&sprefix=el+res%2Caps%2C230&sr=8-1">
-                        <img src="../img/elresplandor.jpeg" alt="Ebook 3"></a>
-                    <p>Gran tensión, número uno en taquillas.</p>
-                </div>
+                //SELECCIÓN Y MUESTRA DE DATOS DE LA BASE DE DATOS
+                $result = mysqli_query($conn, "SELECT Books.Description, Books.img, Books.Title FROM Books WHERE eBook != 0");
 
-                <div class="ebook">
-                    <a href="https://www.amazon.es/Doctor-Sue%C3%B1o-BEST-SELLER-Stephen/dp/849062285X/ref=sr_1_1?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=EKF1ZK5GH47I&dchild=1&keywords=doctor+sue%C3%B1o+stephen+king&qid=1600705985&sprefix=doctor+sue%C3%B1o%2Caps%2C232&sr=8-1">
-                        <img src="../img/doctorsleep.jpeg" alt="Ebook 4"></a>
-                    <p>Para gente con problemas para dormir.</p>
-                </div>
+                if(!empty($result) && mysqli_num_rows($result) > 0) {
+                    //DATOS DE LA SALIDA DE CADA FILA (fila=row)
+                    while($row = mysqli_fetch_array($result)) {
+                        echo "<div class= 'ebook'>";
+                        //AÑADIMOS LA IMAGEN A LA PÁGINA CON LA ETIQUETA IMG DE HTML
+                        echo "<img src=../img/" . $row['img'] . " alt='" . $row['Title'] . "'>";
+                        //AÑADIMOS EL TÍTULO A LA PÁGINA CON LA ETIQUETA H2 DE HTML
+                        //echo "<div class='desc'".$row['Title']."</div>";
+                        //echo "<p>" .  $row['Description'] . "</p>";
+                        echo "</div>";
+                    }
+                } else {
+                    echo "0 resultados";
+                }
+                ?>
 
-                <div class="ebook">
-                    <a href="https://www.amazon.es/Mientras-escribo-BEST-SELLER-Stephen/dp/849759732X/ref=sr_1_1?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=63YZ4KZPD0IY&dchild=1&keywords=mientras+escribo+stephen+king&qid=1600706006&sprefix=mientras+esc%2Caps%2C294&sr=8-1">
-                        <img src="../img/mientrasescribo.jpeg" alt="Ebook 5"></a>
-                    <p>Libro para genios con gran intelecto.</p>
-                </div>
             </div>
-
-
         </div>
 
         <div class="column right">
