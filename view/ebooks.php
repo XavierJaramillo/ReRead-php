@@ -64,7 +64,7 @@
 
         <?php
             //CONEXIÓN CON LA BASE DE DATOS
-            include 'services/connection.php';
+            include '../services/connection.php';
 
             //SELECCIÓN Y MUESTRA DE DATOS DE LA BASE DE DATOS
             $result = mysqli_query($conn, "SELECT Books.Title FROM Books WHERE Top = 1");
