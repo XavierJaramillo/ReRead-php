@@ -1,3 +1,3 @@
 # Re-Read
 
-https://xavierjaramillo.github.io/Re-Read/index.html
+https://xavierjaramillo.github.io/ReRead-php/index.php
