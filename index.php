@@ -56,10 +56,6 @@
                 echo "0 resultados";
             }
         ?>
-<<<<<<< HEAD
-
-=======
->>>>>>> fd688e511b3fa18bb490a478cbdedb74302a4627
     </div>
 
     <footer class="footer">
