@@ -33,8 +33,10 @@
                 <!-- Nuevo desarrollo: formulario para filtrar autor -->
                 <div class="form">
                     <form action="ebooks.php" method="POST">
-                        <label for="fautor">Autor</label>
+                    <label for="fautor">Autor</label>
                         <input type="text" id="fautor" name="fautor" placeholder="Introduce el autor...">
+                        <label for="ftitulo">Titulo</label>
+                        <input type="text" id="ftitulo" name="ftitulo" placeholder="Introduce el titulo...">
                         <label for="country">País</label>
                         <select id="country" name="country">
                             <option value="%">Todos los paises</option>
@@ -63,7 +65,7 @@
                         //SELECCIÓN Y MUESTRA DE DATOS DE LA BASE DE DATOS
                         $nombreAutor = $_REQUEST['fautor'];
                         $query = "SELECT Books.Description, Books.img, Books.Title 
-                        FROM Books INNER JOIN BooksAuthors ON Books.Id=BooksAuthors.BookId 
+                        FROM Books INNER JOIN BooksAuthors ON Books.Id=BooksAuthors.BookId AND Books.Title LIKE '%{$_REQUEST['ftitulo']}%'
                         INNER JOIN Authors ON Authors.Id = BooksAuthors.AuthorId
                         WHERE Authors.Name LIKE '%{$_REQUEST['fautor']}%'
                         AND Authors.Country LIKE '{$_REQUEST['country']}'";
