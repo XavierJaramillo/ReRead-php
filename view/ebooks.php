@@ -64,11 +64,12 @@
                         //Filtrará los ebooks que se mostraran en la pagina mediante la variable fautor
                         //SELECCIÓN Y MUESTRA DE DATOS DE LA BASE DE DATOS
                         $nombreAutor = $_REQUEST['fautor'];
-                        $query = "SELECT Books.Description, Books.img, Books.Title 
-                        FROM Books INNER JOIN BooksAuthors ON Books.Id=BooksAuthors.BookId AND Books.Title LIKE '%{$_REQUEST['ftitulo']}%'
+                        $query = "SELECT Books.Description, Books.img, Books.Title FROM Books 
+                        INNER JOIN BooksAuthors ON Books.Id=BooksAuthors.BookId
                         INNER JOIN Authors ON Authors.Id = BooksAuthors.AuthorId
                         WHERE Authors.Name LIKE '%{$_REQUEST['fautor']}%'
-                        AND Authors.Country LIKE '{$_REQUEST['country']}'";
+                        AND Authors.Country LIKE '{$_REQUEST['country']}'
+                        AND Books.Title LIKE '%{$_REQUEST['ftitulo']}%'";
                         $result = mysqli_query($conn, $query);
                     } else {
                         //Mostrará todos los ebooks de la bd
